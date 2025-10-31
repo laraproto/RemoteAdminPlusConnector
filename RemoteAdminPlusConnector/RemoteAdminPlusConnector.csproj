@@ -9,6 +9,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Reference Include="mscorlib" />
+        <Reference Include="System.Memory" />
         <Reference Include="Assembly-CSharp" Publicize="true" />
         <Reference Include="Assembly-CSharp-firstpass" />
         <Reference Include="CommandSystem.Core" />

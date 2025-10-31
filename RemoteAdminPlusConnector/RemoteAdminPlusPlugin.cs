@@ -1,3 +1,4 @@
+using RemoteAdminPlusConnector.Web;
 using LabApi.Events.CustomHandlers;
 using LabApi.Features;
 using LabApi.Loader.Features.Plugins;
@@ -10,6 +11,8 @@ namespace RemoteAdminPlusConnector
 
         public static RemoteAdminPlusConfig Cfg => Instance?.Config;
         
+        public PlayerEventsHandler PlayerEvents { get; } = new();
+        
         public override string Name => "RemoteAdminPlus";
         public override string Description => "Syncs various things to web panel";
         public override string Author => "Lara The Protogen";
@@ -20,7 +23,7 @@ namespace RemoteAdminPlusConnector
         public override void Enable()
         {
             Instance = this;
-            CustomHandlersManager.RegisterEventsHandler(ServerEvents);
+            WebClientHandler.Init();
             CustomHandlersManager.RegisterEventsHandler(PlayerEvents);
             Logger.Info("RemoteAdminPlus Connector started.");
         }
